@@ -51,8 +51,8 @@ class ConfigReaderV010 : ConfigReader {
             pipeline.createBy = configPayload.createBy
 
             pipeline
-        } catch (_: Exception) {
-            throw Exception("invalid config")
+        } catch (err: Exception) {
+            throw Exception("invalid config: ${err.message}")
         }
     }
 }
