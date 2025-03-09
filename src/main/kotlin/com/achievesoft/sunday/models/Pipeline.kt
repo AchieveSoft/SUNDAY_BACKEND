@@ -10,13 +10,13 @@ data class Pipeline(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val pipelineId: Int = 0,
-    val pipelineCode: String = "",
+    var pipelineCode: String = "",
     @Enumerated(EnumType.ORDINAL)
-    val state: State = State.Idle,
-    val name: String = "",
-    val description: String? = null,
+    var state: State = State.Idle,
+    var name: String = "",
+    var description: String? = null,
     @OneToMany(cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
-    val stages: List<Stage> = listOf(),
-    val createDate: Date? = null,
-    val createBy: String = ""
+    var stages: List<Stage> = listOf(),
+    var createDate: Date? = null,
+    var createBy: String = ""
 )

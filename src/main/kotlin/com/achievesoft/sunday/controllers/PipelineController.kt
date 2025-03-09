@@ -1,5 +1,6 @@
 package com.achievesoft.sunday.controllers
 
+import com.achievesoft.sunday.models.ConfigPayload
 import com.achievesoft.sunday.models.Pipeline
 import com.achievesoft.sunday.models.Task
 import com.achievesoft.sunday.models.responses.BaseResponse
@@ -19,7 +20,7 @@ class PipelineController(private val pipelineService: PipelineService, private v
     fun getPipelines(): BaseResponse<List<Pipeline>> = pipelineService.getPipelines()
 
     @PostMapping("/api/pipeline/add-pipeline")
-    fun addPipeline(@RequestBody pipeline: Pipeline): BaseResponse<Any> = pipelineService.addPipeline(pipeline)
+    fun addPipeline(@RequestBody req: ConfigPayload): BaseResponse<Any> = pipelineService.addPipeline(req)
 
     @GetMapping("/api/pipeline/test-task")
     fun testAgent(): BaseResponse<Any> {
